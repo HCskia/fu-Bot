@@ -11,7 +11,7 @@ Python下载：https://www.python.org/
 
 ### 前置资源
 在开始使用此项目之前，请先下载项目资源文件并解压到项目 src 文件夹中：
->下载链接：[度盘](https://pan.baidu.com/s/15iwz6LQDP3hYEYBM2go5vw?pwd=skia)
+>下载链接：[度盘](https://pan.baidu.com/s/15iwz6LQDP3hYEYBM2go5vw?pwd=skia)  [Google云](https://drive.google.com/file/d/1OFWI6JyIatXVuhZtrehApgzV1EVDbZ-n/view?usp=share_link)
 >
 >声明：此资源文件仅供学习参考交流使用，严禁用于商业用途，下载后请于24小时内删除。
 
