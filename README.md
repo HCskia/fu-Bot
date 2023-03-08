@@ -126,7 +126,7 @@ welcome文件夹用于存储欢迎新成员时的图像，可以自行添加自�
 
 **go-cqhttp：**[GitHub](https://github.com/Mrs4s/go-cqhttp)
 
-**Diving-Fish(mai歌曲信息数据)**：**[GitHub](https://github.com/Diving-Fish)，[查分器](https://www.diving-fish.com/maimaidx/prober/)
+**Diving-Fish(mai歌曲信息数据)：**[GitHub](https://github.com/Diving-Fish)，[查分器](https://www.diving-fish.com/maimaidx/prober/)
 
 # License
 
