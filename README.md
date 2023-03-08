@@ -18,6 +18,8 @@ Python下载：https://www.python.org/
 ## 2. 项目使用
 可以直接将项目文件下载到本地使用 [Download ZIP](https://github.com/HCskia/fu-Bot/archive/refs/heads/main.zip)或者使用git来进行项目版本管理。
 
+安装 requirement.txt 中的插件。pip install -r requirement.txt
+
 ### 下载 go-cqhttp
 在 https://github.com/Mrs4s/go-cqhttp/releases 下载 go-cqhttp 的最新版本， 然后解压出 go-cqhttp.exe 即可。
 
