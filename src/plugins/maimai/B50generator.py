@@ -133,23 +133,23 @@ def drawUserImg(data,B35Rating,B15Rating,rankRating,userName,icon,plate):
 
     ratingPlate = ""
     totalRating = int(B35Rating)+int(B15Rating)
-    if totalRating > 8499:
+    if totalRating > 14999:
         ratingPlate = "UI_CMN_DXRating_10.png"
-    elif totalRating > 7999:
+    elif totalRating > 14499:
         ratingPlate = "UI_CMN_DXRating_09.png"
-    elif totalRating > 6999:
+    elif totalRating > 13999:
         ratingPlate = "UI_CMN_DXRating_08.png"
-    elif totalRating > 5999:
+    elif totalRating > 12999:
         ratingPlate = "UI_CMN_DXRating_07.png"
-    elif totalRating > 4999:
+    elif totalRating > 11999:
         ratingPlate = "UI_CMN_DXRating_06.png"
-    elif totalRating > 3999:
+    elif totalRating > 9999:
         ratingPlate = "UI_CMN_DXRating_05.png"
-    elif totalRating > 2999:
+    elif totalRating > 6999:
         ratingPlate = "UI_CMN_DXRating_04.png"
-    elif totalRating > 1999:
+    elif totalRating > 3999:
         ratingPlate = "UI_CMN_DXRating_03.png"
-    elif totalRating > 999:
+    elif totalRating > 1999:
         ratingPlate = "UI_CMN_DXRating_02.png"
     else:
         ratingPlate = "UI_CMN_DXRating_01.png"
