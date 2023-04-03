@@ -141,12 +141,14 @@ async def bilibiliFunc(msg, bot, groupId):
         bvNum = msg
         videoUrl = f"https://www.bilibili.com/video/{bvNum}"
     elif 'b23.tv' in msg:
+        msg = msg.replace(r'\/','/')
         if "qqdocurl" in msg:
-            msg = msg[msg.find('qqdocurl'):msg.find('scene')].replace("&#44", "").replace(",", '')
-            videoUrl = "https://" + msg[msg.find('b23.tv'):msg.find('";')].replace(r'\/', '/').replace('"', "")
+            msg = msg[msg.find('qqdocurl'):msg.find('&#44')].replace("&#44","").replace(",",'')
+            videoUrl = "https://" + msg[msg.find('b23.tv'):msg.find('";')].replace('"', "")
         else:
-            videoUrl = msg
-        videoUrl = videoUrl.replace(f'{videoUrl[videoUrl.find("?"):len(videoUrl)]}', "")
+            videoUrl = re.search("(?P<url>https?://[^\s]+)", msg).group("url")
+        if "?" in videoUrl:
+            videoUrl = videoUrl.replace(f'{videoUrl[videoUrl.find("?"):len(videoUrl)]}', "")
     else:
         return 0
     logger.info("[b站解析]videoUrl:"+videoUrl)
