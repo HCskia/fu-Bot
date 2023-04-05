@@ -138,7 +138,11 @@ async def bilibiliFunc(msg, bot, groupId):
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36'}
     timeout = aiohttp.ClientTimeout(total=15)
     if 'BV' in msg:
-        bvNum = msg
+        msg = msg[msg.find("BV"):len(msg)]
+        if '/' in msg:
+            bvNum = msg.replace(msg[msg.find('/'):len(msg)], "")
+        else:
+            bvNum = msg
         videoUrl = f"https://www.bilibili.com/video/{bvNum}"
     elif 'b23.tv' in msg:
         msg = msg.replace(r'\/','/')
@@ -153,28 +157,58 @@ async def bilibiliFunc(msg, bot, groupId):
         return 0
     logger.info("[b站解析]videoUrl:"+videoUrl)
     try:
-        async with aiohttp.request("GET", videoUrl, headers=head, timeout=timeout) as resp:
+                async with aiohttp.request("GET", videoUrl, headers=head, timeout=timeout) as resp:
             soup = BeautifulSoup(await resp.text(), 'html.parser')
-            title = soup.find('h1', attrs={'class': "video-title"})['title']
-            view = soup.find('span', attrs={'class': "view"})['title']
-            dm = soup.find('span', attrs={'class': "dm"})['title']
-            like = "点赞：" + str(
-                soup.find('span', attrs={'class': 'like'}).get_text().replace(" ", '').replace('\n', ''))
-            coin = "硬币：" + str(
-                soup.find('span', attrs={'class': 'coin'}).get_text().replace(" ", '').replace('\n', ''))
-            collect = "收藏：" + str(
-                soup.find('span', attrs={'class': 'collect'}).get_text().replace(" ", '').replace('\n', ''))
-            share = "分享：" + str(
-                soup.find('span', attrs={'class': 'share'}).get_text().replace(" ", '').replace('\n', ''))
-            up = "UP主：" + str(
-                soup.find('a', attrs={'class': 'username'}).get_text().replace(" ", '').replace('\n', ''))
+            try:
+                title = soup.find('h1', attrs={'class': "video-title"})['title']
+            except:
+                title = "标题获取失败"
+            try:
+                view = soup.find('span', attrs={'class': "view"})['title']
+            except:
+                view = "总播放数：获取失败"
+            try:
+                dm = soup.find('span', attrs={'class': "dm"})['title']
+            except:
+                dm = "历史累计弹幕数：获取失败"
+            try:
+                like = "点赞：" + str(soup.find('span', attrs={'class': 'like'}).get_text().replace(" ", '').replace('\n', ''))
+            except:
+                like = "点赞：获取失败"
+            try:
+                coin = "硬币：" + str(
+                    soup.find('span', attrs={'class': 'coin'}).get_text().replace(" ", '').replace('\n', ''))
+            except:
+                coin = "硬币：获取失败"
+            try:
+                collect = "收藏：" + str(
+                    soup.find('span', attrs={'class': 'collect'}).get_text().replace(" ", '').replace('\n', ''))
+            except:
+                collect = "收藏：获取失败"
+            try:
+                share = "分享：" + str(
+                    soup.find('span', attrs={'class': 'share'}).get_text().replace(" ", '').replace('\n', ''))
+            except:
+                share = "分享：获取失败"
+            try:
+                up = "UP主：" + str(
+                    soup.find('a', attrs={'class': 'username'}).get_text().replace(" ", '').replace('\n', ''))
+            except:
+                up = "UP主：获取失败"
             try:
                 description = "简介：\n" + (str(soup.find('div', attrs={'id': 'v_desc'}).get_text())).replace("收起", "\n")
             except:
-                description = "简介：Null\n"
-            img = str(soup.find('meta', attrs={'itemprop': 'image'})['content'])
-            url = str(soup.find('meta', attrs={'itemprop': 'url'})['content'])
-            fMsg = f"""{title}\n{up}\n{description}\n{view}\n{dm}\n{like}\n{coin}\n{collect}\n{share}\n链接：{url}\n视频封面：\n[CQ:image,file=http:{img.replace('@100w_100h_1c.png', '')}]"""
+                description = "简介：NONE\n"
+            try:
+                img = str(soup.find('meta', attrs={'itemprop': 'image'})['content'])
+                img = f"视频封面：\n[CQ:image,file=http:{img.replace('@100w_100h_1c.png', '')}]"
+            except:
+                img = "视频封面：获取失败"
+            try:
+                url = "链接：" + str(soup.find('meta', attrs={'itemprop': 'url'})['content'])
+            except:
+                url = "链接获取失败"
+            fMsg = f"""{title}\n{up}\n{description}\n{view}\n{dm}\n{like}\n{coin}\n{collect}\n{share}\n{url}\n{img}"""
             await bot.send_group_msg(message=fMsg, group_id=groupId)
     except concurrent.futures._base.TimeoutError:
         await bot.send_group_msg(message=f"[b站分享解析]发生错误 原因：VideoUrl访问超时", group_id=groupId)
