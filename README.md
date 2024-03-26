@@ -1,5 +1,5 @@
 # fu-Bot
-基于[nonebot](https://github.com/nonebot/nonebot2)和[go-cqhttp](https://github.com/Mrs4s/go-cqhttp)的QQ娱乐机器人，具有聊天娱乐与**舞萌DX**游戏信息查询等相关功能。
+基于[nonebot](https://github.com/nonebot/nonebot2)和[LLOneBot](https://github.com/LLOneBot/LLOneBot)的QQ娱乐机器人，具有聊天娱乐与**舞萌DX**游戏信息查询等相关功能。
 
 **GitHub**：[fu-Bot](https://github.com/HCskia/fu-Bot)
 
@@ -21,29 +21,12 @@ Python下载：https://www.python.org/
 请安装 requirement.txt 中的插件：
 >pip install -r requirement.txt
 
-### 下载 go-cqhttp
-在 https://github.com/Mrs4s/go-cqhttp/releases 下载 go-cqhttp 的最新版本， 然后解压出 go-cqhttp.exe 即可。
+### 下载 LLOneBot API
+在 [LLOneBot API](https://github.com/LLOneBot/LLOneBot/releases) 下载 LLOneBot API 的最新版本
+并且按照[LLOneBot文档](https://llonebot.github.io/zh-CN/guide/getting-started)安装LLOneBot至QQ
 
-
-将解压出的 go-cqhttp.exe 文件放到任意文件夹内（路径名最好不含中文）之后，在同目录下新建一个.bat文件写入以下内容
-```
-go-cqhttp.exe faststart
-```
-
-双击.bat文件启动 go-cqhttp，并选择 **反向Websocket通信** ，第一次运行后会生成 **congfig.yml** 文件，打开此文件并且修改配置：
-```
-account: 
-  uin: # 你的bot QQ账号
-  password: '' # 你的bot QQ密码
-
-message:
-  post-format: array
-
-servers:
-  - ws-reverse:
-      universal: ws://127.0.0.1:10219/onebot/v11/ws
-```
-
+之后请设置ws反向代理，地址为
+>ws://127.0.0.1:10219/onebot/v11/ws
 ## 3. 功能
 
 **普通功能**:
@@ -127,9 +110,13 @@ welcome文件夹用于存储欢迎新成员时的图像，可以自行添加自�
   
 **2023-4-6** 支持哔哩哔哩HD客户端分享的解析
 
+**2024-3-26** 因go-cqhttp停止支持，所以更换至LLOneBot API
+
 ## 感谢
 
 **nonebot：**[GitHub](https://github.com/nonebot/nonebot2)
+
+**LLOneBot：**[GitHub](https://github.com/LLOneBot/LLOneBot)
 
 **go-cqhttp：**[GitHub](https://github.com/Mrs4s/go-cqhttp)
 
