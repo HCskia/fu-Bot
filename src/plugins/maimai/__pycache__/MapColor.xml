@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MapColorData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <dataName>MapColor003301</dataName>
+  <name>
+    <id>3301</id>
+    <str>GYARI</str>
+  </name>
+  <ColorGroupId>
+    <id>33</id>
+    <str>VOICEROID系</str>
+  </ColorGroupId>
+  <Color>
+    <R>0</R>
+    <G>0</G>
+    <B>0</B>
+  </Color>
+  <ColorDark>
+    <R>255</R>
+    <G>161</G>
+    <B>161</B>
+  </ColorDark>
+</MapColorData>

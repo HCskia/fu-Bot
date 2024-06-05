@@ -12,4 +12,4 @@ adapters = [
 ]
 plugins = []
 plugin_dirs = ["src/plugins"]
-builtin_plugins = ["echo"]
+#builtin_plugins = ["echo"]

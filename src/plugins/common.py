@@ -164,8 +164,8 @@ async def bilibiliFunc(msg, bot, groupId):
         return 0
     logger.info("[b站解析]videoUrl:"+videoUrl)
     try:
-                async with aiohttp.request("GET", videoUrl, headers=head, timeout=timeout) as resp:
-            soup = BeautifulSoup(await resp.text(), 'html.parser')
+            async with aiohttp.request("GET", videoUrl, headers=head, timeout=timeout) as resp:
+                soup = BeautifulSoup(await resp.text(), 'html.parser')
             try:
                 title = soup.find('h1', attrs={'class': "video-title"})['title']
             except:

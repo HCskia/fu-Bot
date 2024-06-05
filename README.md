@@ -22,7 +22,7 @@ Python下载：https://www.python.org/
 >pip install -r requirement.txt
 
 ### 下载 LLOneBot API
-在 [LLOneBot API](https://github.com/LLOneBot/LLOneBot/releases) 下载 LLOneBot API 的最新版本
+在 [LLOneBot API](https://llonebot.github.io/zh-CN/guide/getting-started) 下载 LLOneBot API 的最新版本
 并且按照[LLOneBot文档](https://llonebot.github.io/zh-CN/guide/getting-started)安装LLOneBot至QQ
 
 之后请设置ws反向代理，地址为
@@ -112,6 +112,7 @@ welcome文件夹用于存储欢迎新成员时的图像，可以自行添加自�
 
 **2024-3-26** 因go-cqhttp停止支持，所以更换至LLOneBot API
 
+**2024-6-6** 因舞萌更新至2024，所以切换了B50风格，更新请重新下载static资源包
 ## 感谢
 
 **nonebot：**[GitHub](https://github.com/nonebot/nonebot2)
