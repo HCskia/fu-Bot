@@ -159,7 +159,8 @@ def drawSignleImg(data,count):
     fsNameToFile = {'fs': "UI_MSS_MBase_Icon_FS.png",
                     'fsp': "UI_MSS_MBase_Icon_FSD.png",
                     'fsd': "UI_MSS_MBase_Icon_FSDp.png",
-                    'fsdp': "UI_MSS_MBase_Icon_FSp.png"}
+                    'fsdp': "UI_MSS_MBase_Icon_FSp.png",
+                    "sync": "UI_MSS_MBase_Icon_SP.png"}
     baseNameToFile = {'d': "UI_GAM_Rank_D.png",
                       'c': "UI_GAM_Rank_C.png",
                       'b': "UI_GAM_Rank_B.png",
